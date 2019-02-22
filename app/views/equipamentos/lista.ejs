@@ -1,0 +1,43 @@
+<% include ../header %>
+<script type="text/javascript">document.getElementById("lista").classList.value = "active"</script>
+<div class="container">
+  <h2>Lista todos os equipamentos</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+          <th hidden>ID</th>
+          <th>Nome Do Equipamento</th>
+          <th>Data da próxima manutenção</th>
+          <th>Data da última manutenção</th>
+          <th></th>
+          <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+          <%for(var i=0; i<equipamentos.length; i++) {
+            var datamanut = equipamentos[i].dtmanut.toISOString().replace(/(\d{4})-(\d{2})-(\d{2})[^\r\n]*/, '$3/$2/$1');
+            var datault = equipamentos[i].dtult.toISOString().replace(/(\d{4})-(\d{2})-(\d{2})[^\r\n]*/, '$3/$2/$1');
+            %>
+              <tr>
+                  <td><%= equipamentos[i].nome %></td>
+                  <td><%= datamanut %></td>
+                  <td><%= datault %></td>
+                  <td><form action="/equipamentos/form" method="post">
+  	                      <input type="hidden" name="id" value="<%= equipamentos[i].id %>">
+                          <button class="btn btn-warning">Editar</button>
+                          </form>
+                          </td>
+                          <td>
+                          <form action="/equipamentos/form/remove" method="post">
+                          <input type="hidden" name="id" value="<%= equipamentos[i].id %>">
+                          <button class="btn btn-danger" onclick="return confirm('Tem certeza que deseja remover?')">Remover</button>
+                      </form>
+                  </td>
+              </tr>
+          <% } %>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<% include ../footer %>

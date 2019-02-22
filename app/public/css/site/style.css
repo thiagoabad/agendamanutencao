@@ -1,0 +1,30 @@
+.lt-ie9 .form-newsletter{
+  display: none;
+}
+.lt-ie9 .ie8{
+  display: inline;
+}
+
+.ie8{
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
+body {
+
+}
+.p-error{
+  color: red;
+  font-weight: bold;
+}
+
+.h2index{
+  background-color: lightgrey;
+}
+
+.logo{
+  height: 50px;
+}

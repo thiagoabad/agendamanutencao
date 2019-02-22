@@ -1,0 +1,43 @@
+<% include ../header %>
+<script type="text/javascript">document.getElementById("inicial").classList.value = "active"</script>
+<!-- inicio da listagem em si-->
+<div class="container">
+  <div class="row">
+    <%for(i=0; i<equipamentos1.length; i++) {
+      var data = String(equipamentos1[i].dtmanut).split(/[- :]/);
+      var data2 = String(data[2])+'-'+String(data[1])+'-'+String(data[3])
+    %>
+    <div class="col-sm-4">
+      <h2 class="p-error"><%=equipamentos1[i].nome%></h2>
+      <p class="p-error"><%=data2%></p>
+      <p class="p-error">Manutenção requerida!</p>
+    </div>
+    <%}%>
+  </div>
+  <div class="row">
+    <h2 class="h2index">Próximas manutenções...</h2>
+    <%for(i=0; i<equipamentos2.length; i++) {
+      var data = String(equipamentos2[i].dtmanut).split(/[- :]/);
+      var data2 = String(data[2])+'-'+String(data[1])+'-'+String(data[3])
+    %>
+    <div class="col-sm-2">
+      <h2><%=equipamentos2[i].nome%></h2>
+      <p><%=data2%></p>
+      <p>Detalhes</p>
+    </div>
+    <%}%>
+  </div>
+  <div class="row">
+    <h2 class="h2index">Extras</h2>
+    <div class="col-sm-6">
+      <h3>Dados da Sotec</h3>
+      <p>COLOCAR DADOS DA SOTEC AQUI</p>
+    </div>
+    <div class="col-sm-6">
+      <h3>Outras dicas</h3>
+      <p>COLOCAR OUTRAS DICAS AQUI</p>
+    </div>
+  </div>
+</BR>
+<!-- fim-->
+<% include ../footer %>

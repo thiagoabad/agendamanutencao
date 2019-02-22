@@ -1,0 +1,20 @@
+<section id="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+				<p><u><a href="https://www.nationaltransaction.com/">PHY Soluções em TI</a></u> - 2019 - 9 anos!</p>
+				<p class="h6">&copy All rights reserved.</p>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Footer -->
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    var socket = io();
+    socket.on('novaPromocao', function(data) {
+        alert("Livro em promoção " + data.livro.id);
+    });
+</script>
+</body>
+</html>
